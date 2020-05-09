@@ -712,6 +712,11 @@ fieldset > div{
     font-style: italic;
     color: #999;
 }
+@media (min-width: 992px){
+    .opensource-socalnetwork .ossn-layout-newsfeed .col-md-2 {
+	width: auto;
+    }
+}
 /********************************
 	Sidebar Nav
 *********************************/
