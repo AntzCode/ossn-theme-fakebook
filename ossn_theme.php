@@ -1,22 +1,66 @@
 <?php
 /**
- * 	OpenSource-SocialNetwork
+ * Open Source Social Network
  *
- * @package   (Informatikon.com).ossn
- * @author    OSSN Core Team <info@opensource-socialnetwork.com>
- * @copyright 2014 iNFORMATIKON TECHNOLOGIES
- * @license   General Public Licence http://opensource-socialnetwork.com/licence 
- * @link      http://www.opensource-socialnetwork.com/licence
+ * @package   (softlab24.com).ossn
+ * @author    OSSN Core Team <info@softlab24.com>
+ * @copyright 2014-2017 SOFTLAB24 LIMITED
+ * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
+ * @link      https://www.opensource-socialnetwork.org/
  */
-define('__THEMEDIR__', ossn_route()->themes.'ossnfacebook/');
-ossn_new_css('ossn.default', 'themes/ossnfacebook/style/default');
-ossn_new_css('ossn.admin.default', 'themes/ossnfacebook/style/administrator');
+define('__THEMEDIR__', ossn_route()->themes . 'facebook/');
 
-ossn_load_css('ossn.default');
-ossn_load_css('ossn.admin.default', 'admin');
+ossn_register_callback('ossn', 'init', 'ossn_facebook_theme_init');
 
-ossn_add_hook('css', 'group:background', 'ossntheme_blue_group_background');
+function ossn_facebook_theme_init(){	
+	//add bootstrap
+	ossn_new_css('bootstrap.min', 'css/bootstrap/bootstrap.min.css');
+	//ossn_new_js('bootstrap.min', 'js/bootstrap/bootstrap.min.js');
+	
+	ossn_new_css('ossn.default', 'css/core/default');
+	ossn_new_css('ossn.admin.default', 'css/core/administrator');
 
-function ossntheme_blue_group_background($hook, $type, $return, $params){
-  return '#FDFDFD';	
+	//load bootstrap
+	ossn_load_css('bootstrap.min', 'admin');
+	ossn_load_css('bootstrap.min');
+
+	ossn_load_css('ossn.default');
+	ossn_load_css('ossn.admin.default', 'admin');
+	
+	ossn_extend_view('ossn/admin/head', 'ossn_facebook_admin_head');
+	ossn_extend_view('ossn/site/head', 'ossn_facebook_head');
+    ossn_extend_view('js/opensource.socialnetwork', 'js/facebook');	
+}
+function ossn_facebook_head(){
+	$head	 = array();
+	
+	$head[]  = ossn_html_css(array(
+					'href' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+			  ));	
+	$head[]  = ossn_html_css(array(
+					'href' =>  'https://fonts.googleapis.com/css?family=PT+Sans:400italic,700,400'
+			  ));		
+	$head[]  = ossn_html_js(array(
+					'src' => ossn_theme_url() . 'vendors/bootstrap/js/bootstrap.min.js'
+			  ));
+	$head[]  = ossn_html_css(array(
+					'href' => '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.css'
+			  ));	
+	return implode('', $head);
+}
+function ossn_facebook_admin_head(){
+	$head	 = array();	
+	$head[]  = ossn_html_css(array(
+					'href' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+			  ));	
+	$head[]  = ossn_html_css(array(
+					'href' =>  '//fonts.googleapis.com/css?family=Roboto+Slab:300,700,400'
+			  ));		
+	$head[]  = ossn_html_js(array(
+					'src' => ossn_theme_url() . 'vendors/bootstrap/js/bootstrap.min.js'
+			  ));
+	$head[]  = ossn_html_css(array(
+					'href' => '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.css'
+			  ));
+	return implode('', $head);
 }

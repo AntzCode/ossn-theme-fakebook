@@ -8,12 +8,15 @@
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
  * @link      https://www.opensource-socialnetwork.org/
  */
-?>
-<div class="ossn-profile-module-item">
-    <div class="module-title">
-        <?php echo $params['title']; ?>
-    </div>
-    <div class="contents">
-        <?php echo $params['contents']; ?>
-    </div>
-</div>
+ 	$col = "col-md-11";
+	if($params['admin'] === true){
+		$col = "col-md-12";
+	}
+ ?>
+<div class="ossn-system-messages">
+   <div class="row">
+	   <div class="<?php echo $col;?> ossn-system-messages-inner">
+    		<?php echo ossn_display_system_messages(); ?>
+   		</div>
+	</div>
+</div>    
