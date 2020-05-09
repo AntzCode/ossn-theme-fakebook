@@ -19,7 +19,7 @@
             <div class="description">
             	<?php echo ossn_print('home:top:heading', array(ossn_site_settings('site_name'))); ?>
             </div><br />
-            <img src="<?php echo ossn_theme_url();?>images/users.png" />
+            <img class="users-connected" src="<?php echo ossn_theme_url();?>images/users.png" />
  	   </div>   
        <div class="col-md-6">
     	<?php 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme xmlns="http://www.opensource-socialnetwork.org/theme/v/3.0">
-    <name>Facebook Like Theme</name>
-    <id>facebook</id>
-    <author>Anachist</author>
+    <name>Fakebook Theme For OSSN</name>
+    <id>fakebook</id>
+    <author>Antz</author>
     <author_url></author_url>	
     <description>A responsive facebook type theme for Ossn.</description>
     <license>GNU General Public License, version 2</license>    
 	<license_url>http://www.opensource-socialnetwork.org/licence</license_url>
-    <version>3.0</version>
+    <version>4.0</version>
 	<requires>
 		<type>ossn_version</type>
 		<version>4.0</version>

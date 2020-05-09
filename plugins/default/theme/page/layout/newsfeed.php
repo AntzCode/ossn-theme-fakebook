@@ -14,15 +14,20 @@ if(ossn_is_hook('newsfeed', "sidebar:right")) {
 	$newsfeed_right = ossn_call_hook('newsfeed', "sidebar:right", NULL, array());
 	$sidebar = implode('', $newsfeed_right);
 	$isempty = trim($sidebar);
-}  
+}
+
+$sideMenuHtml = ossn_plugin_view('theme/page/elements/sidemenu');
+
 ?>
+<div class="sidemenu-absolute"><?php echo $sideMenuHtml;?></div>
+
 <div class="container">
 	<div class="row">
        	<?php echo ossn_plugin_view('theme/page/elements/system_messages'); ?>    
 		<div class="ossn-layout-newsfeed">
         	<div class="col-md-2">
-            	<?php echo ossn_plugin_view('theme/page/elements/sidemenu');?>
-            </div>
+		    <?php echo $sideMenuHtml;?>
+		</div>
 			<div class="col-md-6">
 				<div class="newsfeed-middle">
 					<?php echo $params['content']; ?>

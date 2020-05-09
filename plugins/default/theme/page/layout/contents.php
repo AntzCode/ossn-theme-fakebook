@@ -9,6 +9,9 @@
  * @link      https://www.opensource-socialnetwork.org/
  */
  ?>
+<div class="sidemenu-absolute"><?php echo ossn_plugin_view('theme/page/elements/sidemenu');?></div>
+
+
 <div class="container">
        <div class="row">
        		<div class="ossn-layout-contents">

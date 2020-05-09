@@ -27,19 +27,31 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
 }
+label{
+     margin-bottom: 0;
+     font-weight: normal;
+}
 .ossn-form input[type='password'],
 .ossn-form text,
-.ossn-form select,
 .ossn-form textarea,
 .ossn-form input[type='text'] {
     width: 100%;
     border: 1px solid #eee;
-    padding: 10px;
+    padding: 2px 5px;
     margin-bottom: 5px;
     outline: none;
     display: block;
     resize:vertical;
 }
+.ossn-form select{
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 5px;
+    outline: none;
+    display: block;
+    resize:vertical;
+}
+
 .ossn-form input[type='submit'] {
 	margin-top:5px;
     margin-bottom:5px;
@@ -85,6 +97,9 @@ p {
 }
 .btn-primary {
 	background:#3b5998;
+}
+body a, body a:hover, body a:active{
+    color: #07286b;
 }
 /************************************
 	Layouts
@@ -179,7 +194,7 @@ p {
 .ossn-layout-media .content,
 .ossn-page-contents {
     background: #fff;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #eee;
 }
 .opensource-socalnetwork {
@@ -254,7 +269,7 @@ p {
 }
 .topbar-userdata .name{
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
         margin-left: 5px;
 }
 .topbar-menu-right li a,
@@ -272,10 +287,12 @@ p {
     font-size: 20px;
     font-weight: bold;
     color:#29487d;
+    position: relative;
+    z-index: 25;
 }
 .topbar-userdata .homelink a {
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 5px;
     color: #fff;
     margin-left: 20px;
@@ -327,7 +344,9 @@ p {
 	Ossn Wall
 *************************************/
 
-.ossn-wall {} .ossn-wall-items {} .ossn-wall-item {
+.ossn-wall {} 
+.ossn-wall-items {} 
+.ossn-wall-item {
     padding: 30px;
     padding-top: 10px;
     border: 1px solid #eee;
@@ -363,6 +382,7 @@ p {
 }
 .ossn-wall-item .post-contents {
     margin-top: 15px;
+    clear: left;
 }
 .ossn-wall-item .post-contents p {
    /** Incorrect Hyphenation in the theme GoBlue 3.0 #824 **/
@@ -375,20 +395,27 @@ p {
     display: block;
     margin-bottom: 10px;
 }
+.ossn-wall-item .meta {
+    position: relative;
+}
+
 .ossn-wall-item .meta .post-menu {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .ossn-wall-container {
     background: #fff;
     border: 1px solid #eee;
     border-radius: 4px;
-    padding: 2px;
+    padding: 0 2%;
     padding-top: 0px;
     margin-bottom: 10px;
 }
 .ossn-wall-container textarea {
     padding: 10px;
     width: 100%;
+    margin-left: 0%;
     border: 1px solid;
     border-color: #E5E6E9 #DFE0E4;
     border-bottom: 0px;
@@ -397,10 +424,6 @@ p {
     outline: none;
 }
 .ossn-wall-container .controls {
-    background-color: #F6F7F8;
-    border-bottom: 1px solid #E9EAED;
-    border-left: 1px solid #E9EAED;
-    border-right: 1px solid #E9EAED;
     height: 40px;
     width: 100%;
     margin-top: 3px;
@@ -408,14 +431,24 @@ p {
     padding-right: 10px;
 }
 .ossn-wall-container .wall-tabs {
-    border-bottom: 1px solid #E5E5E5;
-    height: 26px;
+    
 }
 .ossn-wall-container .wall-tabs .item {
     margin-top: 5px;
+    display: inline-block;
+    margin: 0 6px 0 0;
+    padding: 6px 9px;
+    list-style-type: none;
+    cursor: pointer;
+}
+.ossn-wall-container .wall-tabs .item:hover{
+    background: #EEE;
+}
+
+.ossn-wall-container .wall-tabs .item i{
+    color: <?php echo $hlIconColor ?>;
 }
 .ossn-wall-container .wall-tabs .item div {
-    display: inline-block;
 }
 .ossn-wall-container .wall-tabs .item .text {
     font-weight: bold;
@@ -424,7 +457,11 @@ p {
     position: absolute;
     font-size: 15px;
 }
-.ossn-wall-container .tabs-input {} .ossn-wall-container .controls li {
+.ossn-wall-container .tabs-input {
+    margin: 0;
+}
+
+.ossn-wall-container .controls li {
     padding: 10px;
     display: inline-block;
     cursor: pointer;
@@ -473,13 +510,28 @@ p {
 .ossn-wall-item .friends {
 	display:inline-block;
 }
+.ap-input{
+    height: auto;
+}
+.ap-input-icon{
+    top: -5px;
+    right: 2px;
+}
+fieldset > div{
+    margin-bottom: 14px;
+}
 /*******************************
 	Comments Likes
 ********************************/
-
+.ossn-inner-page .ossn-comment-attach-photo .fa-camera{
+    margin-top: 19px;
+}
 .ossn-comment-menu {
     float: right;
     display: none;
+    position:absolute;
+    top: 0px;
+    right: 14px;
 }
 .comments-item:hover .ossn-comment-menu {
     display: block;
@@ -487,6 +539,12 @@ p {
 .comments-likes {
     min-height: 50px;
     width: 100%;
+}
+.comments-likes li a{
+    text-decoration: none;
+}
+.comments-likes li a:hover{
+    text-decoration: underline;
 }
 .menu-likes-comments-share {
     margin-bottom: 10px;
@@ -524,10 +582,13 @@ p {
 .comments-list .comments-item .comment-user-img {
     display: inline-block;
     border-radius: 32px;
+    margin-top: 14px;
 }
 .comments-list .comments-item .comment-contents {
     display: inline-block;
-    margin-top: -3px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    margin-left: 10px;
 }
 .comment-container {
     padding-bottom: 10px;
@@ -546,6 +607,7 @@ p {
     margin: 0px;
     word-break: break-word;
     text-align: justify;
+    padding-right: 22px;
 }
 .comment-contents p img {
     display: block;
@@ -557,6 +619,13 @@ p {
     font-weight: bold;
     margin-right: 5px;
     font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+}
+.comment-contents .owner-link:hover,
+.ossn-wall-item .user .owner-link:hover,
+.ossn-wall-item .ossn-wall-item-type a:hover{
+    text-decoration: underline;
 }
 .comment-contents {
     width: 100%;
@@ -579,6 +648,13 @@ p {
 [contentEditable=true]:empty:not(:focus)::before{
         content:attr(placeholder);
 }
+.ossn-reactions-list-whoreacted-uinfo .userlink{
+    text-decoration: none;
+}
+.ossn-reactions-list-whoreacted-uinfo .userlink:hover{
+    text-decoration: underline;
+}
+
 /*********************************
 	Like
 ************************************/
@@ -597,7 +673,16 @@ p {
 .ossn-like-comment,
 .ossn-total-likes {
     margin-left: 10px;
+    text-decoration: none;
 }
+.ossn-likes-annotation-total{
+    margin-right: 13px;
+}
+
+.emojii-container a{
+    text-decoration: none;
+}
+
 /********************************
 	Global
 ***********************************/
@@ -610,7 +695,9 @@ p {
 /********************************
 	Sidebar Nav
 *********************************/
-
+.sidemenu-absolute{
+    display: none;
+}
 .sidebar {
     background-color: #333;
     height: 200px;
@@ -665,15 +752,14 @@ p {
 .newseed-uinfo .name a {
     display: block;
     color: #000;
-    font-size: 12px;
+    font-size: 14px;
 }
 .newseed-uinfo .name .edit-profile {
     font-weight: inherit;
 }
 .sidebar-menu-nav {
     overflow: auto;
-    font-family: verdana;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 200;
     top: 0px;
     width: 100%;
@@ -774,6 +860,10 @@ p {
 	Dropdown
 ***************************/
 
+.dropdown-menu li a{
+    text-decoration: none;
+}
+
 .dropdown-submenu {
     position: relative;
 }
@@ -861,6 +951,120 @@ p {
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
+.ossn-widget.birthdays .widget-contents a{
+    text-decoration: none;
+}
+
+
+
+
+/*****************************
+	Date/Time Pickers
+******************************/
+
+.bootstrap-datetimepicker-widget td span.active:hover,.bootstrap-datetimepicker-widget td span.active:active,
+.bootstrap-datetimepicker-widget td span.active.active,.bootstrap-datetimepicker-widget td span.active.disabled,
+.bootstrap-datetimepicker-widget td span.active[disabled],
+.bootstrap-datetimepicker-widget td.active:hover, .bootstrap-datetimepicker-widget td.active:hover:hover,
+.bootstrap-datetimepicker-widget td.active:active, .bootstrap-datetimepicker-widget td.active:hover:active,
+.bootstrap-datetimepicker-widget td.active.active, .bootstrap-datetimepicker-widget td.active:hover.active,
+.bootstrap-datetimepicker-widget td.active.disabled, .bootstrap-datetimepicker-widget td.active:hover.disabled,
+.bootstrap-datetimepicker-widget td.active[disabled], .bootstrap-datetimepicker-widget td.active:hover[disabled]{
+    background: #3b5998;
+    background: linear-gradient(0deg, #3b5998 0%, #3b5998 48%, #3b5998 100%);
+    color: #FFF;
+}
+.bootstrap-datetimepicker-widget .timepicker-hour,.bootstrap-datetimepicker-widget .timepicker-minute,.bootstrap-datetimepicker-widget .timepicker-second{
+    width: 100%;
+    font-weight: bold;
+    font-size: 1em
+}
+.bootstrap-datetimepicker-widget td span{
+    line-height: 36px;
+    height: 36px;
+    
+}
+
+.icon-chevron-down {
+    position:relative;
+    display:block;
+    height: 16px; /*height should be double border*/
+    left: -7px;
+}
+.icon-chevron-down::before,
+.icon-chevron-down::after {
+    position:absolute;
+    display:block;
+    content:"";
+    border:8px solid transparent; /*adjust size*/
+}
+/*Change the four instances of 'top' below to rotate (top/right/bottom/left)*/
+.icon-chevron-down::before {
+    top:0;
+    border-top-color: #333>; /*Chevron Color*/
+}
+.icon-chevron-down::after {
+    top:-10px; /*adjust thickness*/
+    border-top-color:#fff; /*Match background colour*/
+}
+
+.icon-chevron-up {
+    position:relative;
+    display:block;
+    height: 16px; /*height should be double border*/
+    left: -7px;
+}
+.icon-chevron-up::before,
+.icon-chevron-up::after {
+    position:absolute;
+    display:block;
+    content:"";
+    border:8px solid transparent; /*adjust size*/
+}
+/*Change the four instances of 'top' below to rotate (top/right/bottom/left)*/
+.icon-chevron-up::before {
+    bottom:0;
+    border-bottom-color: #333; /*Chevron Color*/
+}
+.icon-chevron-up::after {
+    top:-10px; /*adjust thickness*/
+    border-top-color:#fff; /*Match background colour*/
+}
+
+
+
+    
+    
+    /******************************
+    	Live Chat Box
+    ********************************/
+    
+    
+     .message-box-sent{
+	background: linear-gradient(#C7DEFE, #E7F1FE);
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#C7DEFE), to(#E7F1FE));
+	background-image: -webkit-linear-gradient(bottom, #C7DEFE, #E7F1FE);
+    }
+    .ossn-widget.messages-with .message-box-sent::before{
+	background: linear-gradient(#d5e6fe, #E7F1FE);
+    }
+    
+    .tab-container .ossn-chat-tab-titles .text{
+	padding: 0;
+	margin-top: 4px;
+    }
+    .tab-container .ossn-chat-triangle-blue{
+	border-left: 5px solid <?php echo $hlIconColor ?>;
+	opacity: 0.6;
+	margin-top: 13px;
+    }
+    .tab-container .ossn-chat-triangle-white{
+	border-right: 5px solid #333;
+	opacity: 0.6;
+	margin-top: 13px;
+    }
+  
+    
 /***********************************
 	Ossn Notifications
 ***************************************/
@@ -948,7 +1152,10 @@ p {
 .ossn-notification-mark-read {
     float: right;
 }
-.ossn-notifications-all a {} .ossn-notifications-all li {
+.ossn-notifications-all a {
+    text-decoration: none;
+} 
+.ossn-notifications-all li {
     padding: 10px;
     display: block;
 }
@@ -1089,7 +1296,8 @@ p {
     -moz-border-radius: 2px 2px 2px 2px;
     padding: 2px;
 }
-.ossn-profile .profile-photo img {} .ossn-profile .user-fullname {
+.ossn-profile .profile-photo img {} 
+.ossn-profile .user-fullname {
     color: #FFF;
     font-weight: bold;
     margin-top: -155px;
@@ -1164,7 +1372,7 @@ p {
 .profile-menu {
     float: right;
     position: relative;
-    margin-top: -40px;
+    margin-top: -34px;
     margin-right: 20px;
 }
 #cover-menu {
@@ -1220,6 +1428,16 @@ p {
 /*****************************
 	Side Menu icons
 *******************************/
+.menu-section-links, 
+.menu-section-groups, 
+.menu-section-emembers, 
+.menu-section-videos, 
+.menu-section-bpage, 
+.menu-section-polls, 
+.menu-section-event{
+    margin: 18px 0 0 0 !important;
+    line-height: 1 !important;
+}
 .menu-section-item-newsfeed:before{
     content: "\f0a1" !important;
 }
@@ -1248,6 +1466,38 @@ p {
     width: 200px;
     padding-right: 10px;
 }
+.menu-content .sub-menu > li{
+    line-height: 1.85 !important;
+}
+.menu-content .sub-menu > li a:hover{
+    text-decoration: underline;
+}
+.newseed-uinfo .name a{
+    text-decoration: none;
+}
+.newseed-uinfo .name a:hover{
+    text-decoration: underline;
+}
+
+
+
+    
+/**************************
+    Events
+ ****************************/
+
+
+.ossn-page-contents .table-striped > tbody > tr:nth-of-type(odd) th{
+    border-top: none;
+    
+} 
+
+
+.polls-form-options .label-primary{
+    text-decoration: none;
+    font-weight: normal;
+}
+
 /******************************
 	Search
 ******************************/
@@ -1697,7 +1947,10 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item {
     overflow: hidden;    
 }
 .ossn-users-list-item .col-md-2 {
-    text-align: center;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: -63px;
 }
 /*********************************
 	Footer
@@ -1709,6 +1962,7 @@ footer {
 }
 footer .col-md-12 {
     border-top: 1px solid #E8E8E8;
+    padding-top: 2px
 }
 footer .container {} footer .ossn-footer-menu {
     padding-bottom: 10px;
@@ -1716,6 +1970,10 @@ footer .container {} footer .ossn-footer-menu {
 footer .ossn-footer-menu a {
     color: #807D7D;
     font-size: 13px;
+    text-decoration: none;
+}
+footer .ossn-footer-menu a:hover{
+    text-decoration: underline;
 }
 footer .ossn-footer-menu a::after {
     content: "|";
@@ -1838,7 +2096,6 @@ footer .ossn-footer-menu a:last-child::after {
 	margin-top: 10px;
     margin-bottom: 10px;
  	padding-top:0px;
- 
 }
 /**************************
 	Photos
@@ -1847,9 +2104,45 @@ footer .ossn-footer-menu a:last-child::after {
 .ossn-photo-viewer {
      max-width: 100% !important;
 }
+.ossn-layout-contents .ossn-photos li{
+    border: solid 1px #EEE;
+}
+.ossn-layout-contents .ossn-photos a{
+    text-decoration: none;
+}
+.ossn-videos-list .video-title a{
+    text-decoration: none;
+}
+
+
+
+
 /**************************
 	Mobile Layout Settings
 ***************************/
+
+@media (max-width: 320px) {
+    .topbar-menu-right li a{
+	padding: 10px 3px !important;
+    }
+    .ossn-wall-container .wall-tabs .item {
+	margin: 0 0px 0 0;
+	padding: 6px 8px;
+    }
+    .ossn-wall-item .meta .user{
+	width: auto !important;
+    }
+    .ossn-wall-item-type {
+	display: block;
+	width: 189px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+    }
+    img.users-connected{
+	width: 280px !important;
+    }
+}
+
 
 @media (max-width: 480px) {
     /***********************
@@ -1865,15 +2158,27 @@ footer .ossn-footer-menu a:last-child::after {
     /************************
     	Wall
      ************************/
-    
+    .ossn-inner-page .container .row{
+	margin-left: -15px;
+	margin-right: -15px;
+    }
+    .ossn-inner-page .ossn-wall-item .row{
+	margin-left: -15px;
+	margin-right: -15px;
+    }
     .ossn-wall-item-type {
         display: block;
+    }
+    .ossn-wall-item .meta .post-menu a.btn{
+	margin-top: -20px;
+	padding: 0;
     }
     .ossn-wall-item .meta .user {
         width: 155px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+	margin-top: 0;
     }
     .ossn-list-users .uinfo .userlink {
         text-overflow: ellipsis;
@@ -1890,12 +2195,15 @@ footer .ossn-footer-menu a:last-child::after {
    .ossn-message-box .contents {
         height: 280px ;
         overflow-x: auto;
-		overflow: overlay;
+	overflow: overlay;
     }
     /***************************
     	Topbar notification box
    *****************************/
     
+    .topbar .left-side.col-md-5{
+	padding-right: 0;
+    }
     .ossn-notifications-box {
         width: 300px;
     }
@@ -1903,11 +2211,17 @@ footer .ossn-footer-menu a:last-child::after {
         width: 230px;
     }
     .notification-friends .notfi-meta a {
-        width: 100px;
+        width: 205px;
+	padding: 0;
+    }
+    .ossn-notifications-friends-inner .controls{
+	float: none;
+	margin-top: 0;
+	margin-bottom: 6px;
     }
     .ossn-notifications-box .notfi-meta,
     .ossn-notification-messages .user-item .data {
-        width: 215px !important;
+        width: 205px !important;
     }
     .ossn-notification-messages .user-item .data .name {
     	width: 110px !important;
@@ -1952,6 +2266,9 @@ footer .ossn-footer-menu a:last-child::after {
     .upload-photo {
         width: 100px;
     }
+    .profile-hr-menu{
+	display: none;
+    }
     .profile-hr-menu ul li {
         display: block;
         text-align: center;
@@ -1968,6 +2285,11 @@ footer .ossn-footer-menu a:last-child::after {
      	System
      *****************************/
     
+     .ossn-inner-page .row{
+     margin-left: 0;
+     margin-right: 0;
+     }
+     
     .ossn-users-list-item img {
         display: none;
     }
@@ -1980,7 +2302,7 @@ footer .ossn-footer-menu a:last-child::after {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 90px ;
+        width: 140px;
     }
     .ossn-search-page .ossn-users-list-item .uinfo a {
         white-space: nowrap;
@@ -1993,7 +2315,7 @@ footer .ossn-footer-menu a:last-child::after {
         padding-right: 15px;
     }
     .ossn-users-list-item {
-        padding-bottom: 10px;
+        
     }
     .ossn-widget .widget-contents {
     	padding:5px;
@@ -2130,6 +2452,9 @@ footer .ossn-footer-menu a:last-child::after {
     	max-width:500px;
     }
 
+    .ossn-users-list-item .col-md-2{
+	margin-right: 0;
+    }
     /***********************
     	Comments
      ***********************/
@@ -2139,12 +2464,93 @@ footer .ossn-footer-menu a:last-child::after {
     .comments-item .col-md-11 {
         padding-left: 15px;
     }
+    
+    
+    
+    /**************************
+     	Topbar notification box
+     ****************************/
+    
+    .topbar-userdata{
+	display: none;
+    }
+    .topbar-menu-right{
+	float: right;
+    }
+    .topbar-menu-right li a{
+	padding: 10px 7px;
+    }
+    .topbar-menu-right li:hover, .topbar-menu-left li:hover {
+	background: none;
+    }
+    .topbar .left-side{
+	min-width: 45%;
+    }
+    
+    
     /**************************
      	Layouts
      ****************************/
     
     .newsfeed-right {
         display: none;
+    }
+    
+    
+    .sidemenu-absolute{
+	position: absolute;
+	top: 59px;
+	overflow: visible;
+	left: 0;
+	width: 100%;
+	display: none;
+    }
+    
+    .sidemenu-absolute.active{
+	display: block;
+    }
+    
+    .container .sidemenu{
+	display: none;
+    }
+    
+    .ossn-inner-page .sidemenu{
+	text-align: right;
+	width: 80%;
+	border-left: solid 4px #EEE;
+	border-bottom: solid 4px #EEE;
+	right: 0;
+	top: -10px;
+	position: absolute;
+	z-index: 30;
+	background: white;
+	padding: 10px;
+    }
+    .ossn-inner-page .sidemenu .newseed-uinfo{
+	height: 44px;
+	margin: -10px;
+	border-bottom: solid 1px #EEE;
+	background: #EFEFEF;
+    }
+    .ossn-inner-page .sidemenu .newseed-uinfo .name{
+	width: auto;
+    }
+    .ossn-inner-page .sidemenu .newseed-uinfo .name a{
+	font-size: 20px;
+	line-height: 44px;
+    }
+    .ossn-inner-page .sidemenu .newseed-uinfo img{
+	float: right;
+	width: 44px;
+	height: 44px;
+	margin-left: 10px;
+    }
+
+    .ossn-inner-page .sidemenu .menu-content li{
+	font-size: 20px;
+    }
+    .ossn-inner-page .sidemenu .sub-menu li:before{
+	float: right;
     }
     /*******************
      	Messages

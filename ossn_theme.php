@@ -8,7 +8,7 @@
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
  * @link      https://www.opensource-socialnetwork.org/
  */
-define('__THEMEDIR__', ossn_route()->themes . 'facebook/');
+define('__THEMEDIR__', ossn_route()->themes . 'fakebook/');
 
 ossn_register_callback('ossn', 'init', 'ossn_facebook_theme_init');
 

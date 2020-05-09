@@ -1,5 +1,36 @@
 //<script>
 $(document).ready(function() {
+	$('.topbar').delegate('.ossn-topbar-dropdown-menu', 'click', function(e){
+	    
+	    if($(window).width() <= 992){
+		// for mobile devices
+		e.preventDefault();
+		e.stopPropagation();
+		
+		if($('.sidemenu-absolute').hasClass('active')){
+		    // close the menu
+		    $('a i', this).css({
+			'transform' : 'scaleY(1)',
+			'top' : '0px',
+			'position' : 'relative'
+		    });
+		    $('.sidemenu-absolute').removeClass('active');
+		    
+		}else{
+		    // open the menu
+		    $('a i', this).css({
+			'transform' : 'scaleY(-1)',
+			'top' : '8px',
+			'position' : 'relative'
+		    });
+		    console.log($('a i', this));
+		    $('.sidemenu-absolute').addClass('active');
+		}
+	    }
+	    
+	    
+	});
+    
 	$(document).on('click', '#sidebar-toggle', function() {
 		var $toggle = $(this).attr('data-toggle');
 		if ($toggle == 0) {

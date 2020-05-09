@@ -1,9 +1,9 @@
 /**
  * Open Source Social Network
  *
- * @package Open Source Social Network
+ * @package   Open Source Social Network
  * @author    Open Social Website Core Team <info@softlab24.com>
- * @copyright 2014-2017 SOFTLAB24 LIMITED
+ * @copyright (C) SOFTLAB24 LIMITED
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
  * @link      https://www.opensource-socialnetwork.org/
  */
@@ -24,7 +24,17 @@ Ossn.PostUnlike = function(post) {
         callback: function(callback) {
             if (callback['done'] !== 0) {
                 $('#ossn-like-' + post).html(callback['button']);
-                $('#ossn-like-' + post).attr('onclick', 'Ossn.PostLike(' + post + ');');
+                $('#ossn-like-' + post).attr('data-reaction', 'Ossn.PostLike(' + post + ', "<<reaction_type>>");');
+				$('#ossn-like-' + post).removeAttr('onclick'); 
+				//reactions
+				$parent = $('#ossn-like-' + post).parent().parent().parent();				
+				if(callback['container']){
+						$parent.find('.like-share').remove();
+						$parent.find('.menu-likes-comments-share').after(callback['container']);
+				}
+				if(!callback['container']){
+						$parent.find('.like-share').remove();	
+				}				
             } else {
                 $('#ossn-like-' + post).html(Ossn.Print('unlike'));
             }
@@ -32,17 +42,24 @@ Ossn.PostUnlike = function(post) {
     });
 
 };
-Ossn.PostLike = function(post) {
+Ossn.PostLike = function(post, $reaction_type = '') {
     Ossn.PostRequest({
         url: Ossn.site_url + 'action/post/like',
         beforeSend: function() {
             $('#ossn-like-' + post).html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
         },
-        params: '&post=' + post,
+        params: '&post=' + post + '&reaction_type='+$reaction_type,
         callback: function(callback) {
             if (callback['done'] !== 0) {
                 $('#ossn-like-' + post).html(callback['button']);
                 $('#ossn-like-' + post).attr('onClick', 'Ossn.PostUnlike(' + post + ');');
+				$('#ossn-like-' + post).removeAttr('data-reaction'); 
+				//reactions				
+				if(callback['container']){
+						$parent = $('#ossn-like-' + post).parent().parent().parent();
+						$parent.find('.like-share').remove();
+						$parent.find('.menu-likes-comments-share').after(callback['container']);
+				}
             } else {
                 $('#ossn-like-' + post).html(Ossn.Print('like'));
             }
@@ -55,71 +72,192 @@ Ossn.EntityUnlike = function(entity) {
     Ossn.PostRequest({
         url: Ossn.site_url + 'action/post/unlike',
         beforeSend: function() {
-            $('#ossn-like-' + entity).html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
+            $('#ossn-elike-' + entity).html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
         },
         params: '&entity=' + entity,
         callback: function(callback) {
             if (callback['done'] !== 0) {
-                $('#ossn-like-' + entity).html(callback['button']);
-                $('#ossn-like-' + entity).attr('onclick', 'Ossn.EntityLike(' + entity + ');');
+                $('#ossn-elike-' + entity).html(callback['button']);
+                $('#ossn-elike-' + entity).attr('data-reaction', 'Ossn.EntityLike(' + entity + ', "<<reaction_type>>");');
+				$('#ossn-elike-' + entity).removeAttr('onclick'); 
+				//reactions				
+				$parent = $('#ossn-elike-' + entity).parent().parent().parent();				
+				if(callback['container']){
+						$parent.find('.like-share').remove();
+						$parent.find('.menu-likes-comments-share').after(callback['container']);
+				}
+				if(!callback['container']){
+						$parent.find('.like-share').remove();	
+				}
             } else {
-                $('#ossn-like-' + entity).html(Ossn.Print('unlike'));
+                $('#ossn-elike-' + entity).html(Ossn.Print('unlike'));
             }
         },
     });
 
 };
-Ossn.EntityLike = function(entity) {
+Ossn.EntityLike = function(entity, $reaction_type = '') {
     Ossn.PostRequest({
         url: Ossn.site_url + 'action/post/like',
         beforeSend: function() {
-            $('#ossn-like-' + entity).html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
+            $('#ossn-elike-' + entity).html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
         },
-        params: '&entity=' + entity,
+        params: '&entity=' + entity + '&reaction_type='+$reaction_type,
         callback: function(callback) {
             if (callback['done'] !== 0) {
-                $('#ossn-like-' + entity).html(callback['button']);
-                $('#ossn-like-' + entity).attr('onClick', 'Ossn.EntityUnlike(' + entity + ');');
+                $('#ossn-elike-' + entity).html(callback['button']);
+                $('#ossn-elike-' + entity).attr('onClick', 'Ossn.EntityUnlike(' + entity + ');');
+				$('#ossn-elike-' + entity).removeAttr('data-reaction'); 
+				//reactions				
+				if(callback['container']){
+						$parent = $('#ossn-elike-' + entity).parent().parent().parent();
+						$parent.find('.like-share').remove();
+						$parent.find('.menu-likes-comments-share').after(callback['container']);
+				}				
             } else {
-                $('#ossn-like-' + post).html(Ossn.Print('like'));
+                $('#ossn-elike-' + post).html(Ossn.Print('like'));
             }
         },
     });
 
 };
+
 Ossn.RegisterStartupFunction(function() {
-    $(document).ready(function() {
-        $(document).delegate('.ossn-like-comment', 'click', function(e) {
+
+    $(document).ready(function(){
+	var $htmlreactions = '<div class="ossn-like-reactions-panel"> <li class="ossn-like-reaction-like"> <div class="emoji  emoji--like"> <div class="emoji__hand"> <div class="emoji__thumb"></div> </div> </div> </li> <li class="ossn-like-reaction-love"> <div class="emoji  emoji--love"> <div class="emoji__heart"></div> </div> </li> <li class="ossn-like-reaction-haha"> <div class="emoji  emoji--haha"> <div class="emoji__face"> <div class="emoji__eyes"></div> <div class="emoji__mouth"> <div class="emoji__tongue"></div> </div> </div> </div> </li> <li class="ossn-like-reaction-yay"> <div class="emoji  emoji--yay"> <div class="emoji__face"> <div class="emoji__eyebrows"></div> <div class="emoji__mouth"></div> </div> </div> </li> <li class="ossn-like-reaction-wow"> <div class="emoji  emoji--wow"> <div class="emoji__face"> <div class="emoji__eyebrows"></div> <div class="emoji__eyes"></div> <div class="emoji__mouth"></div> </div> </div> </li> <li class="ossn-like-reaction-sad"> <div class="emoji  emoji--sad"> <div class="emoji__face"> <div class="emoji__eyebrows"></div> <div class="emoji__eyes"></div> <div class="emoji__mouth"></div> </div> </div> </li> <li class="ossn-like-reaction-angry"> <div class="emoji  emoji--angry"> <div class="emoji__face"> <div class="emoji__eyebrows"></div> <div class="emoji__eyes"></div> <div class="emoji__mouth"></div> </div> </div> </li> </div>';					   
+	$('body').on('click',function(e){
+			$class = $(e.target).attr('class');
+			//console.log($class);
+			if($class && !$(e.target).hasClass('post-control-like') && !$(e.target).hasClass('entity-menu-extra-like') && !$(e.target).hasClass('ossn-like-comment') && !$(e.target).hasClass('ossn-like-reactions-panel')){					
+				$('.ossn-like-reactions-panel').remove();
+			}
+	});
+	$MenuReactions = function($elem){
+			 $parent = $($elem).parent();
+			 $('.ossn-like-reactions-panel').remove(); //remove from all places , remove panel.
+			 $onclick = $($elem).attr('data-reaction');
+			 if(!$onclick || $parent.find('.ossn-like-reactions-panel').length > 0){
+					return false; 
+			 }
+			 $parent.append($htmlreactions);			 
+			 $like	  = $onclick.replace("<<reaction_type>>", 'like');
+			 $love	  = $onclick.replace("<<reaction_type>>", 'love');
+			 $haha	  = $onclick.replace("<<reaction_type>>", 'haha');
+			 $yay	  = $onclick.replace("<<reaction_type>>", 'yay');
+			 $wow	  = $onclick.replace("<<reaction_type>>", 'wow');
+			 $sad	  = $onclick.replace("<<reaction_type>>", 'sad');
+			 $angry	  = $onclick.replace("<<reaction_type>>", 'angry');
+			 
+			 $parent.find('.ossn-like-reaction-like').attr('onclick', $like);
+			 $parent.find('.ossn-like-reaction-love').attr('onclick', $love);
+			 $parent.find('.ossn-like-reaction-haha').attr('onclick', $haha);
+			 $parent.find('.ossn-like-reaction-yay').attr('onclick', $yay);
+			 $parent.find('.ossn-like-reaction-wow').attr('onclick', $wow);
+			 $parent.find('.ossn-like-reaction-sad').attr('onclick', $sad);
+			 $parent.find('.ossn-like-reaction-angry').attr('onclick', $angry);
+   	};
+	$("body").delegate('.post-control-like, .entity-menu-extra-like',  'mouseenter', function(){
+			 $MenuReactions($(this));
+	});		
+	/*** for comments ***/
+	$("body ").on('mouseenter touchstart', '.ossn-like-comment', function(){
+			 $parent = $(this).parent().parent();
+			 $('.ossn-like-reactions-panel').remove(); //remove from all places , remove panel.
+			 if($(this).attr('data-type') == 'Unlike' ||  $parent.find('.ossn-like-reactions-panel').length > 0 || !$(this).attr('data-id')){
+					return true; 
+			 }
+			 $parent.append($htmlreactions);
+			 $parent.find('.ossn-like-reaction-like')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'like')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-love')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'love')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-haha')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'haha')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-yay')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'yay')
+								.attr('data-id', $(this).attr('data-id')).
+								attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-wow')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'wow')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-sad')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'sad')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+								
+			 $parent.find('.ossn-like-reaction-angry')
+			 					.addClass('ossn-like-comment-react')
+								.attr('data-reaction', 'angry')
+								.attr('data-id', $(this).attr('data-id'))
+								.attr('data-type', 'Like')
+								.attr('href', $(this).attr('href'));
+	});			
+    $(document).delegate('.ossn-like-comment-react, .ossn-like-comment', 'click', function(e) {
             e.preventDefault();
             var $item = $(this);
             var $type = $.trim($item.attr('data-type'));
             var $url = $item.attr('href');
+			if($(this).attr('class') == 'ossn-like-comment' && $type == 'Like'){
+				return false;	
+			}
             Ossn.PostRequest({
                 url: $url,
                 action: false,
+				params: '&reaction_type='+$item.attr('data-reaction'),
                 beforeSend: function() {
                     $item.html('<img src="' + Ossn.site_url + 'components/OssnComments/images/loading.gif" />');
                 },
                 callback: function(callback) {
                     if (callback['done'] == 1) {
                         $total_guid = Ossn.UrlParams('annotation', $url);
-                        $total = $('.ossn-total-likes-' + $total_guid).attr('data-likes');
+                        $total = $('.ossn-total-likes-' + $total_guid).data('likes') || 0;
                         if ($type == 'Like') {
-                            $item.html(Ossn.Print('unlike'));
-                            $item.attr('data-type', 'Unlike');                            
+                            $('#ossn-like-comment-'+$total_guid).html(Ossn.Print('unlike'));
+                            $('#ossn-like-comment-'+$total_guid).attr('data-type', 'Unlike');                            
+                           
                             var unlike = $url.replace("like", "unlike");
-                            $item.attr('href', unlike);
+                            $('#ossn-like-comment-'+$total_guid).attr('href', unlike);
+                            
                             $total_likes = $total;
-                            $total_likes++;
+                            
+							/**$total_likes++;
                             $('.ossn-total-likes-' + $total_guid).attr('data-likes', $total_likes);
-                            $('.ossn-total-likes-' + $total_guid).html('<i class="fa fa-thumbs-up"></i>' + $total_likes);
+                            $('.ossn-total-likes-' + $total_guid).html('<i class="fa fa-thumbs-up"></i>' + $total_likes); */
+							$('.ossn-like-reactions-panel').remove(); //remove from all places , remove panel.
                         }
                         if ($type == 'Unlike') {
-                            $item.html(Ossn.Print('like'));
-                            $item.attr('data-type', 'Like');                            
+                           $('#ossn-like-comment-'+$total_guid).html(Ossn.Print('like'));
+                            $('#ossn-like-comment-'+$total_guid).attr('data-type', 'Like');                            
                             var like = $url.replace("unlike", "like");
-                            $item.attr('href', like);
-                            if ($total > 1) {
+							
+                           $('#ossn-like-comment-'+$total_guid).attr('href', like);
+                           
+						   /*if ($total > 1) {
                                 $like_remove = $total;
                                 0
                                 $like_remove--;
@@ -130,20 +268,25 @@ Ossn.RegisterStartupFunction(function() {
                                 $('.ossn-total-likes-' + $total_guid).attr('data-likes', 0);
                                 $('.ossn-total-likes-' + $total_guid).html('');
 
+                            }*/
                             }
+						//update total likes
+						if(callback['container']){
+								$('#comments-item-'+$total_guid).find('.ossn-likes-annotation-total').remove();
+								$('#comments-item-'+$total_guid).find('.ossn-reaction-list').remove();
+								$('#comments-item-'+$total_guid).find('.comment-metadata').append(callback['container']);
                         }
                     }
                     if (callback['done'] == 0) {
                         if ($type == 'Like') {
-                            $item.html(Ossn.Print('like'));
-                            $item.attr('data-type', 'Like');
+                            $('#ossn-like-comment-'+$total_guid).html(Ossn.Print('like'));
+                            $('#ossn-like-comment-'+$total_guid).attr('data-type', 'Like');
                             Ossn.MessageBox('syserror/unknown');
                         }
                         if ($type == 'Unlike') {
-                            $item.html(Ossn.Print('unlike'));
-                            $item.attr('data-type', 'Unlike');
+                            $('#ossn-like-comment-'+$total_guid).html(Ossn.Print('unlike'));
+                            $('#ossn-like-comment-'+$total_guid).attr('data-type', 'Unlike');
                             Ossn.MessageBox('syserror/unknown');
-
                         }
                     }
                 },

@@ -1,34 +1,66 @@
 <style>
 	header {
-    background-color: #3b5998;
-    border-bottom: 1px solid #29487d;
-    color: #fff;
-    z-index: 1;
-    padding: 5px;
-    height: 85px;
+	    background-color: #3b5998;
+	    border-bottom: 1px solid #29487d;
+	    color: #fff;
+	    z-index: 1;
+	    padding: 5px;
 	}
 	.sitename-header {
-    	font-size: 30px;
-    font-weight: bold;
-    		margin-top: 15px;
+	    font-size: 30px;
+	    font-weight: bold;
+	    margin-top: 15px;
 	}
 	header label {
-		    font-size: 12px;
+	    font-size: 12px;
 	}
 	header input[type='password'],
 	header input[type='text']{
-			    padding: 3px 10px !important;
-    		color: #000 !important;
-			    margin-bottom: 2px !important;
+	    padding: 3px 10px !important;
+	    color: #000 !important;
+	    margin-bottom: 2px !important;
 	}
 	header a {
-		    font-size: 12px;
-    color: #fff;
+	    font-size: 12px;
+	    color: #fff;
 	}
 	header input[type='submit']{
-		        margin-top: 25px!important;
-    padding: 3px 8px !important;
+	    margin-top: 20px!important;
+	    padding: 3px 8px !important;
 	    background: #718dc7 !important;
+	}
+	.ossn-startup-logo{
+	    width: 55px;
+	    margin-right: 13px;
+	    background: white;
+	    border-radius: 20px;
+	    height: 55px;
+	    padding: 5px;
+	}
+	img.users-connected{
+	    width: 440px;
+	    margin-left: 40px;
+	    margin-top: 0px;
+	}
+	
+	@media (max-width: 480px) {
+	    img.users-connected{
+		width: 380px;
+		margin-left: 0px;
+		margin-top: -20px;
+	    }
+	    .widget-heading{
+		text-align:center;
+	    }
+	    .widget-contents > p{
+		text-align: center;
+	    }
+	    .ossn-layout-startup .ossn-form .col-md-6:first-child{
+		padding-right: 15px;
+	    }
+	    .ossn-red-borders{
+		border-width: 3px !important;
+	    }
 	}
 </style>
 <header>	

@@ -16,6 +16,9 @@ if(ossn_is_hook('newsfeed', "sidebar:right")) {
 	$isempty = trim($sidebar);
 } 
 ?>
+<div class="sidemenu-absolute"><?php echo ossn_plugin_view('theme/page/elements/sidemenu');?></div>
+
+
 <div class="container">
 	<div class="row">
 		<?php echo ossn_plugin_view('theme/page/elements/system_messages'); ?>    
