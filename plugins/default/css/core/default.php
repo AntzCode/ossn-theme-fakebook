@@ -1049,6 +1049,10 @@ fieldset > div{
 	background: linear-gradient(#d5e6fe, #E7F1FE);
     }
     
+    .tab-container .ossn-chat-tab-titles{
+	background-color: #3b5998;
+    }
+    
     .tab-container .ossn-chat-tab-titles .text{
 	padding: 0;
 	margin-top: 4px;
