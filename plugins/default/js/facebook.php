@@ -1,5 +1,20 @@
 //<script>
 $(document).ready(function() {
+	
+	setTimeout(function(){
+	    // it's a hack because the original was coded to an id selector. Now we have two links on the same page doing the same thing!
+	    $('.menu-section-item-a-addgroup').each(function(){
+		$(this).off('click');
+	    });
+	    $('.container').delegate('.menu-section-item-a-addgroup', 'click', function(){
+		Ossn.MessageBox('groups/add');
+	    });
+	    $('.sidemenu-absolute').delegate('.menu-section-item-a-addgroup', 'click', function(){
+		Ossn.MessageBox('groups/add');
+	    });
+	    
+	});
+	
 	$('.topbar').delegate('.ossn-topbar-dropdown-menu', 'click', function(e){
 	    
 	    if($(window).width() <= 992){
@@ -23,7 +38,6 @@ $(document).ready(function() {
 			'top' : '8px',
 			'position' : 'relative'
 		    });
-		    console.log($('a i', this));
 		    $('.sidemenu-absolute').addClass('active');
 		}
 	    }
