@@ -95,8 +95,28 @@ p {
 .btn {
 	border-radius:2px;
 }
-.btn-primary {
-	background:#3b5998;
+.btn-primary, .btn-success{
+	background: #3b5998;
+	border-color: #07286b;
+}
+.btn-primary:hover, .btn-success:hover{
+	background: #2b4988;
+	border-color: #2b4988;
+}
+.btn-warning{
+    background: #EEE;
+    color: #000;
+    border: solid 1px #999;
+}
+.btn-warning:hover{
+    background: #F3F3F3;
+    color: #000;
+    border: solid 1px #666;
+}
+.btn-danger{background: #E00000;
+}
+.btn-danger:hover{
+    background: #FF0000;
 }
 body a, body a:hover, body a:active{
     color: #07286b;
@@ -1121,7 +1141,7 @@ fieldset > div{
 }
 .ossn-notifications-box .bottom-all a,
 .ossn-notifications-box .notfi-meta strong {
-    color: #337ab7;
+    color: #07286b;
 }
 .ossn-notifications-box .notfi-meta {
     width: 330px;
