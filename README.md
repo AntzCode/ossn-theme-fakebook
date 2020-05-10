@@ -1,7 +1,7 @@
 ossnfacebook
 ============
 
-A responsive Facebook-like theme  for OSSN 
+A responsive Facebook-like theme  for OSSN. [Download the ZIP file](https://github.com/happyhiveworker/ossnfacebook/archive/master.zip).
 
 ![Preview of Fakebook v4.0](fakebook-screenshot-desktop.png)
 See screenshots of responsive design on [desktop](fakebook-screenshot-desktop.png), [tablet](fakebook-screenshot-ipad.png) and [mobile](fakebook-screenshot-mobile.png) devices.
@@ -18,7 +18,7 @@ Installation
 
 http://docs.opensource-socialnetwork.org/index.php/How_To_Install_Open_Source_Social_Network
 
-1. Look for the green button on the Github project "Clone or download" and then choose "Download ZIP".
+1. Download the project as a .zip file ([click here to download the latest](https://github.com/happyhiveworker/ossnfacebook/archive/master.zip)).
 2. In the "Themes" section of your OSSN Administrator Control Panel, click "Installer" and then upload the zip file.
 3. In the "Themes" section of your OSSN Administrator Control Panel, find the theme and then click the "Enable" button.
 
