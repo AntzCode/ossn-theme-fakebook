@@ -1,9 +1,9 @@
 ossnfacebook
 ============
 
-Facebook like theme  for OSSN 
+A Facebook-like theme  for OSSN 
 
-![Preview of Fakebook v4.0](fakebook-screenshot-preview.png)
+![Preview of Fakebook v4.0](fakebook-screenshot-desktop.png)
 
 
 Opensource-SocialNetwork also know as OSSN is a social networking software written in PHP. It allows you to make a social networking website, helps your members build social relationships with people who share similar professional or personal interests.
