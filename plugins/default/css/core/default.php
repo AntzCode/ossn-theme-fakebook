@@ -2585,6 +2585,9 @@ footer .ossn-footer-menu a:last-child::after {
     .ossn-inner-page .sidemenu .sub-menu li:before{
 	float: right;
     }
+    .menu-section-item-groups{
+	width: auto;
+    }
     /*******************
      	Messages
      *******************/
