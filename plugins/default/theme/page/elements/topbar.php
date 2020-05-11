@@ -26,10 +26,10 @@
 			</div>
             <div class="col-md-4">
                 	<div class="topbar-userdata">
-                    	<img src="<?php echo ossn_loggedin_user()->iconURL()->smaller;?>" />
-                        <span class="name"><?php echo ossn_loggedin_user()->fullname;?></span>
-                        <span class="homelink"><a href="<?php echo ossn_site_url();?>home"><?php echo ossn_print('home');?></a></span>
-                    </div>            
+			    <div class="user-icon"><a href="<?php echo ossn_loggedin_user()->profileURL(); ?>"><img src="<?php echo ossn_loggedin_user()->iconURL()->smaller;?>" /></a></div>
+			    <div class="name"><a href="<?php echo ossn_loggedin_user()->profileURL(); ?>"><?php echo ossn_loggedin_user()->fullname; ?></a></div>
+			    <div class="homelink"><a href="<?php echo ossn_site_url();?>home"><?php echo ossn_print('home');?></a></div>
+			</div>            
             </div>
 			<div class="col-md-3 text-right right-side">
 				<div class="topbar-menu-right">

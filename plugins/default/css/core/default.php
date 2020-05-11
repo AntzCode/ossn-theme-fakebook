@@ -280,8 +280,10 @@ body a, body a:hover, body a:active{
 }
 .topbar-userdata {
     float: right;
-        margin-top: 12px;
-
+    margin-top: 12px;
+}
+.topbar-userdata > div{
+    display: inline-block;
 }
 .topbar-userdata img {
     border-radius: 3px;
@@ -310,11 +312,13 @@ body a, body a:hover, body a:active{
     position: relative;
     z-index: 25;
 }
+.topbar-userdata a, .topbar-userdata a:hover{
+    color: #fff;
+}
 .topbar-userdata .homelink a {
     font-weight: bold;
     font-size: 14px;
     margin-left: 5px;
-    color: #fff;
     margin-left: 20px;
     border-left: 1px solid #17233d;
     padding-left: 19px;
