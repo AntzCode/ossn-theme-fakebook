@@ -41,9 +41,11 @@ $(document).ready(function() {
 		    $('.sidemenu-absolute').addClass('active');
 		}
 	    }
-	    
 	});
 	
+	<?php if(!ossn_isLoggedin() || !ossn_loggedin_user()->canModerate()){ ?>
+	    $('.ossn-profile-extra-menu.dropdown .dropdown-menu li a.profile-menu-extra-banuser').parents('li').remove();
+	<?php } ?>
 	
 	$('.ossn-widget.messages-with').delegate('.message-inner', 'DOMSubtreeModified', function(){
 	    
