@@ -32,7 +32,7 @@ uksort($menus, function($a, $b){
 	// put the unspecified link after our preferences
 	return -1;
     }
-    return (int) (array_search($a, $preferredOrder) > array_search($b, $preferredOrder));
+    return (array_search($a, $preferredOrder) > array_search($b, $preferredOrder)) ?1 : -1;
 });
 foreach ($menus as $name => $menu) {
 	$section = 'menu-section-'.OssnTranslit::urlize($name).' ';
