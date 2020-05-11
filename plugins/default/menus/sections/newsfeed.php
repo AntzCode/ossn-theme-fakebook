@@ -13,7 +13,27 @@ $menus = $params['menu'];
 <div class="sidebar-menu-nav">
           <div class="sidebar-menu">
                  <ul id="menu-content" class="menu-content">
-<?php                        
+<?php 
+// sort the menus
+uksort($menus, function($a, $b){
+    $preferredOrder = array(
+	'links',
+	'bpage',
+	'groups',
+	'videos',
+	'polls',
+	'event'
+    );
+    if(!in_array($a, $preferredOrder)){
+	// put the unspecified link after our preferences
+	return 1;
+    }
+    if(!in_array($b, $preferredOrder)){
+	// put the unspecified link after our preferences
+	return -1;
+    }
+    return (int) (array_search($a, $preferredOrder) > array_search($b, $preferredOrder));
+});
 foreach ($menus as $name => $menu) {
 	$section = 'menu-section-'.OssnTranslit::urlize($name).' ';
 	$items = 'menu-section-items-'.OssnTranslit::urlize($name).' ';
