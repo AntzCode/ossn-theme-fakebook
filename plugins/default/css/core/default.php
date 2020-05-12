@@ -716,6 +716,24 @@ fieldset > div{
     font-style: italic;
     color: #999;
 }
+.ossn-widget.birthdays li > img{
+    vertical-align: top;
+}
+.ossn-widget.birthdays li > div{
+    display: inline-block;
+    overflow: hidden;
+    max-width: 150px;
+}
+.ossn-widget.birthdays li > div i{
+    margin: 0 6px;
+    padding: 0;
+}
+.ossn-widget.birthdays .time-created{
+    float: none !important;
+    clear: left;
+    display: block;
+    margin-left: 28px;
+}
 @media (min-width: 992px){
     .opensource-socalnetwork .ossn-layout-newsfeed .col-md-2 {
 	width: auto;

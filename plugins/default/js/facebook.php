@@ -15,6 +15,15 @@ $(document).ready(function() {
 	    
 	});
 	
+	// modify some html that comes from the Birthdays widget
+	$('.newsfeed-right .ossn-widget.birthdays .widget-contents li > img').each(function(){
+	    // use the small thmbnail avatar size
+	    $(this).attr('src', $(this).attr('src').replace(/topbar/g, 'small'));
+	    // wrap the name and date in a div for better css control of text wrapping
+	    var pattern = new RegExp($('<div>').append($(this).clone()).html());
+	    $(this.parentNode).html($('<div>').append($(this).clone()).html()+'<div>'+$(this.parentNode).html().replace(pattern, '')+'</div>');
+	});
+	
 	$('.topbar').delegate('.ossn-topbar-dropdown-menu', 'click', function(e){
 	    
 	    if($(window).width() <= 992){
