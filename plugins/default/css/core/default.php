@@ -734,6 +734,7 @@ fieldset > div{
     display: block;
     margin-left: 28px;
 }
+
 @media (min-width: 992px){
     .opensource-socalnetwork .ossn-layout-newsfeed .col-md-2 {
 	width: auto;
@@ -1077,7 +1078,10 @@ fieldset > div{
     top:-10px; /*adjust thickness*/
     border-top-color:#fff; /*Match background colour*/
 }
-
+.ossn-chat-inline-table > .ossn-chat-inline-table{
+    width: 17px;
+    text-align: center;
+}
 
 
     
