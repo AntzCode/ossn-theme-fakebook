@@ -4,19 +4,19 @@
  *
  * @package   (softlab24.com).ossn
  * @author    OSSN Core Team <info@softlab24.com>
- * @copyright 2014-2017 SOFTLAB24 LIMITED
+ * @copyright (C) SOFTLAB24 LIMITED
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
  * @link      https://www.opensource-socialnetwork.org/
  */
 $pages = range(1, $params['total']);
+$args  = $params['options'];
 
 //unset non-required vars
 unset($_GET['h']);
 unset($_GET['p']);
-unset($_GET['offset']);
+unset($_GET[$args['offset_name']]);
 
 $args_url = OssnPagination::constructUrlArgs();
-
 //if there is only one page don't show pagination
 if (count($pages) !== 1) {
 	
@@ -55,28 +55,28 @@ if (count($pages) !== 1) {
 	}
 	
 	echo '
-	<div class="container-table">
+	<div class="container-table container-table-pagination">
 		<div class="center-row">
 				<ul class="pagination ossn-pagination">';
   	//disaply first if first page is exist
 	if(isset($first) && !empty($first)){
-        $url = "?offset={$first}{$args_url}";
-     	echo "<li><a href='{$url}' class='ossn-pagination-page'>".ossn_print('ossn:pagination:first')."</a></li>";	
+        $url = "{$args['href']}?{$args['offset_name']}={$first}{$args_url}";
+     	echo "<li class='page-item'><a href='{$url}' class='ossn-pagination-page page-link'>".ossn_print('ossn:pagination:first')."</a></li>";	
 	} 
    foreach ($pages as $page) {
         if ($page == $params['offset']) {
-            $selected = 'class="active"';
-            $url = "?offset={$page}{$args_url}";
-            echo "<li {$selected}><a href='{$url}'>{$page}</a></li>";
+            $selected = 'class="active page-item"';
+            $url = "{$args['href']}?{$args['offset_name']}={$page}{$args_url}";
+            echo "<li {$selected}><a  class='page-link' href='{$url}'>{$page}</a></li>";
         } else {
-            $url = "?offset={$page}{$args_url}";
-            echo "<li><a href='{$url}'>{$page}</a></li>";
+            $url = "{$args['href']}?{$args['offset_name']}={$page}{$args_url}";
+            echo "<li class='page-item'><a class='page-link' href='{$url}'>{$page}</a></li>";
         }
     }
 	//disply last page if it exist
 	if(isset($last) && !empty($last)){
-        $url = "?offset={$last}{$args_url}";
-     	echo "<li><a href='{$url}'>".ossn_print('ossn:pagination:last')."</a></li>";	
+        $url = "{$args['href']}?{$args['offset_name']}={$last}{$args_url}";
+     	echo "<li class='page-item'><a class='page-link' href='{$url}'>".ossn_print('ossn:pagination:last')."</a></li>";	
 	}
 echo '</ul></div></div>';
 }
