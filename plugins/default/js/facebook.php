@@ -56,7 +56,9 @@ $(document).ready(function() {
 		$(this).data('working', 1);
 	    }
 	    
-	    $('> .row .text', this).each(function(){
+	    $('> .row .text:not(.linkified)', this).each(function(){
+		
+		$(this).addClass('linkified');
 		
 		var tokens = [];
 		
