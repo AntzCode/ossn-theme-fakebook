@@ -1103,7 +1103,14 @@ fieldset > div{
     .tab-container .ossn-chat-tab-titles{
 	background-color: #3b5998;
     }
-    
+    .tab-container .ossn-chat-tab-titles:hover{
+	background: #2b4988;
+    }
+    .tab-container .ossn-chat-tab-titles .options .ossn-chat-inline-table:hover{
+	position:relative;
+	left: -1px;
+	top: -1px;
+    }
     .tab-container .ossn-chat-tab-titles .text{
 	padding: 0;
 	margin-top: 4px;
