@@ -2,11 +2,11 @@
 /**
  * Open Source Social Network
  *
- * @package   (softlab24.com).ossn
- * @author    OSSN Core Team <info@softlab24.com>
- * @copyright 2014-2017 SOFTLAB24 LIMITED
- * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
- * @link      https://www.opensource-socialnetwork.org/
+ * @package   fakebook for ossn
+ * @author    AntzCode Ltd <www.antzcode.com>
+ * @copyright 2020 AntzCode Limited
+ * @license   General Public Licence http://www.opensource-socialnetwork.org/licence
+ * @link      https://www.github.com/antzcode/ossnfacebook
  */
 define('__THEMEDIR__', ossn_route()->themes . 'fakebook/');
 
