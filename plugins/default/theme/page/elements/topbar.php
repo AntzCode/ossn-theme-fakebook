@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="col-md-5 left-side left">
 			  <a href="<?php echo ossn_site_url() ?>" class="sitename" href="<?php echo ossn_site_url();?>" title="<?php echo ossn_site_settings('site_name'); ?>">
-			    <span><?php $name = ossn_site_settings('site_name'); echo $name[0];?></span></a>
+			    <span><?php /*$name = ossn_site_settings('site_name'); echo $name[0];*/ ?>F</span></a>
 				<?php if(ossn_isLoggedin()){ ?>
 				<div class="topbar-menu-left site-name">
                     <?php echo ossn_view_form('search', array(
