@@ -61,7 +61,7 @@ if (isset($params['contents'])) {
             	<div class="col-md-6 header-dropdown">
 					<ul class="navbar-right">	
                         <div class="dropdown">
-                        	<a id="dLabel" role="button" data-toggle="dropdown" data-target="#"><i class="fa fa-bars fa-3"></i></a> 
+                        	<a id="dLabel" role="button" data-bs-toggle="dropdown" data-bs-target="#"><i class="fa fa-bars fa-3"></i></a>
     						<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
              					 <li><a href="<?php echo ossn_site_url("action/admin/logout", true);?>"><?php echo ossn_print('admin:logout');?></a></li>
            					 </ul>

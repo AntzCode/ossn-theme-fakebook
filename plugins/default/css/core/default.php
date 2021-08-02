@@ -53,6 +53,7 @@ label{
 }
 .ossn-form input[type='password'],
 .ossn-form text,
+.ossn-form select,
 .ossn-form textarea,
 .ossn-form input[type='text'] {
     width: 100%;
@@ -63,15 +64,6 @@ label{
     display: block;
     resize:vertical;
 }
-.ossn-form select{
-    width: 100%;
-    padding: 2px;
-    margin-bottom: 5px;
-    outline: none;
-    display: block;
-    resize:vertical;
-}
-
 .ossn-form input[type='submit'] {
 	margin-top:5px;
     margin-bottom:5px;
@@ -384,6 +376,11 @@ body a, body a:hover, body a:active{
 .ossn-topbar-dropdown-menu .dropdown-menu {
     margin: 1px -120px 0;
 }
+    .dropmenu-topbar-icons.ossn-notifications-box{
+        position: absolute;
+    display: none;
+    background: white;
+    }
 /***********************************
 	Ossn Wall
 *************************************/
@@ -1163,7 +1160,7 @@ fieldset > div{
     background-color: #F9F9F9;
 }
 .ossn-notifications-box .type-name {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: bold;
     padding: 1px 10px 5px 10px;
     color: #000;
@@ -1177,14 +1174,15 @@ fieldset > div{
 }
 .ossn-no-notification {
     text-align: center;
-    padding: 10px;
+    padding: 10px 20px;
+    line-height: 6;
 }
 .ossn-notifications-box .type-name .title {
     display: inline-block;
 }
 .ossn-notifications-box .type-name .links {
     display: inline-block;
-    float: right;
+    float: left;
 }
 .ossn-notifications-box .type-name .links a {
     color: #337ab7;

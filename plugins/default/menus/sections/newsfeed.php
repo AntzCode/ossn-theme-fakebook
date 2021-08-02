@@ -37,12 +37,11 @@ uksort($menus, function($a, $b){
 foreach ($menus as $name => $menu) {
 	$section = 'menu-section-'.OssnTranslit::urlize($name).' ';
 	$items = 'menu-section-items-'.OssnTranslit::urlize($name).' ';
-	$item = 'menu-section-item-'.OssnTranslit::urlize($menu['text']).' ';
 	
 	$expend = '';
 	$hash = md5($name);
     ?>
-     <li data-target="#<?php echo $hash;?>" class="<?php echo $section;?>">
+     <li data-bs-target="#<?php echo $hash;?>" class="<?php echo $section;?>">
         	<a class="<?php $item;?>" href="javascript:void(0);"><?php echo ossn_print($name);?></a>
      </li>
     <ul class="sub-menu <?php echo $expend;?>" id="<?php echo $hash;?>" class="<?php echo $items;?>"> 

@@ -9,7 +9,7 @@
  * @link      https://www.github.com/antzcode/ossnfacebook
  */
  	$col = "col-md-11";
-	if($params['admin'] === true){
+	if(array_key_exists('admin', $params) && $params['admin'] === true){
 		$col = "col-md-12";
 	}
  ?>

@@ -124,9 +124,9 @@ $(document).ready(function() {
 	
     
 	$(document).on('click', '#sidebar-toggle', function() {
-		var $toggle = $(this).attr('data-toggle');
+		var $toggle = $(this).attr('data-bs-toggle');
 		if ($toggle == 0) {
-			$(this).attr('data-toggle', 1);
+			$(this).attr('data-bs-toggle', 1);
 			$('.sidebar').addClass('sidebar-open');
 			$('.ossn-page-container').addClass('sidebar-open-page-container');
 			$('.topbar .right-side').addClass('right-side-space');
@@ -134,7 +134,7 @@ $(document).ready(function() {
 			$('.ossn-inner-page').addClass('sidebar-hide-contents-xs');
 		}
 		if ($toggle == 1) {
-			$(this).attr('data-toggle', 0);
+			$(this).attr('data-bs-toggle', 0);
 			$('.sidebar').removeClass('sidebar-open');
 			$('.ossn-page-container').removeClass('sidebar-open-page-container');
 			$('.topbar .right-side').removeClass('right-side-space');

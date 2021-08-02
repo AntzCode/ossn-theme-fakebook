@@ -43,15 +43,15 @@
             </div>
 			<div class="col-md-3 text-right right-side">
 				<div class="topbar-menu-right">
-
+					<ul>
 					<li class="ossn-topbar-dropdown-menu">
 						<div class="dropdown">
 						<?php
 							if(ossn_isLoggedin()){						
 								echo ossn_plugin_view('output/url', array(
 									'role' => 'button',
-									'data-toggle' => 'dropdown',
-									'data-target' => '#',
+									'data-bs-toggle' => 'dropdown',
+									'data-bs-target' => '#',
 									'text' => '<i class="fa fa-sort-desc"></i>',
 								));									
 								echo ossn_view_menu('topbar_dropdown'); 
@@ -64,6 +64,7 @@
 							echo ossn_plugin_view('notifications/page/topbar');
 						}
 						?>
+					</ul>
 				</div>
 			</div>
 		</div>

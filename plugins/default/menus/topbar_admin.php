@@ -2,7 +2,7 @@
     <div class="container">
    		<div class="row">
     		<div class="col-12">
-            	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+            	 <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#navigationbar">
                		<span class="sr-only">Toggle navigation</span>
                		<span class="icon-bar"></span>
                		<span class="icon-bar"></span>
@@ -16,10 +16,11 @@
             			<?php
 							foreach ($params['menu'] as $key => $links) {
    								 if (count($links) > 1) {
-      								  $menu_parent = '<li>
-									  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">'
+      								  $menu_parent = '<li class="nav-item dropdown">
+									  <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">'
 									  	. ossn_print($key) . 
-									   '<i class="fa fa-sort-desc"></i></a>
+									   '<i class="fa fa-sort-desc"></i>
+									  </a>
 									  <ul class="dropdown-menu multi-level">';
        									foreach ($links as $item) {
 												 $class = "menu-topbar-admin-" . $item['name']; 
@@ -31,6 +32,7 @@
 												 unset($item['name']);
 												 unset($item['parent']);
 												 $item['text'] = ossn_print($item['text']);
+												 $item['class'] = 'dropdown-item '.$item['class'];
 												 $link = ossn_plugin_view('output/url', $item);
            										 $menu_parent .= '<li>'.$link.'</li>';
         								}
@@ -47,16 +49,16 @@
 										} 
 										unset($item['name']);										
 										$item['text'] = ossn_print($item['text']);
+										$item['class'] = 'nav-link '.$item['class'];
 										$link = ossn_plugin_view('output/url', $item);										
-            							$menu = '<li>'.$link.'</li>';
+            									$menu = '<li class="nav-item">'.$link.'</li>';
         						 	}
         						 	echo $menu;
     					 	 	}
 							}
 						?>
             		</ul>
+            		                 
         		</div>
     		</div>
-    	</div>
-    </div>
-</div>
+</nav>

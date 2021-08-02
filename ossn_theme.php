@@ -29,11 +29,11 @@ function ossn_facebook_theme_init(){
 	
 	ossn_extend_view('ossn/admin/head', 'ossn_facebook_admin_head');
 	ossn_extend_view('ossn/site/head', 'ossn_facebook_head');
-    ossn_extend_view('js/opensource.socialnetwork', 'js/facebook');	
+    ossn_extend_view('js/opensource.socialnetwork', 'js/facebook');
+    ini_set('display_errors', 1);error_reporting(E_ALL);
 }
 function ossn_facebook_head(){
 	$head	 = array();
-	
 	$head[]  = ossn_html_css(array(
 					'href' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 			  ));	
@@ -45,11 +45,11 @@ function ossn_facebook_head(){
 			  ));
 	$head[]  = ossn_html_css(array(
 					'href' => '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.css'
-			  ));	
+			  ));
 	return implode('', $head);
 }
 function ossn_facebook_admin_head(){
-	$head	 = array();	
+	$head	 = array();
 	$head[]  = ossn_html_css(array(
 					'href' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 			  ));	

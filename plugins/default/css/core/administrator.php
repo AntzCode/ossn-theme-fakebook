@@ -9,7 +9,6 @@
  * @link      https://www.github.com/antzcode/ossnfacebook
  */
 ?>
-<?php
 /**
  * Fakebook Theme for Open Source Social Network
  *
@@ -295,4 +294,33 @@ footer a {
 .ui-datepicker-month {
     padding: 0px;
     display: inline-block;
+}
+
+/*****************
+    BS 5
+***************/
+.card-spacing {
+    margin-top:5px;
+}
+.card {
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.card-header a {
+    text-color: inherit;
+    font-size: 16px;
+}
+.card-header {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.card-body p {
+    margin: 0 0 10px;
+}
+thead, tbody, tfoot, tr, td, th {
+    border-top: 1px solid #ddd;
+}
+.table > :not(caption) > * > * {
+    border-bottom-width: 0;
 }
