@@ -14,7 +14,15 @@ $(document).ready(function() {
 	    });
 	    
 	});
-	
+
+    $('.topbar').delegate('.search-icon-submit', 'click', function(e){
+        if($('.topbar form.ossn-search input[name=q]').val().length < 1){
+            // not searching an empty value
+            return;
+        }
+        $('.topbar form.ossn-search').submit();
+    });
+
 	$('.topbar').delegate('.ossn-topbar-dropdown-menu', 'click', function(e){
 	    
 	    if($(window).width() <= 992){

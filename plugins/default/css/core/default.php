@@ -278,6 +278,21 @@ body a, body a:hover, body a:active{
 	text-decoration:none;
 }
 
+    .topbar .topbar-menu-left .search-icon-submit{
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    z-index: 5;
+    color: lightgray;
+    cursor: pointer;
+    }
+    .topbar .topbar-menu-left .search-icon-submit:hover{
+    top: 7px;
+    right: 15px;
+    color: gray;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    }
+
 .topbar-menu-left {
     position: relative;
     z-index: 1;

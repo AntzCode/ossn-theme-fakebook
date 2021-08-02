@@ -31,6 +31,7 @@
 								'action' => ossn_site_url("search"),
 					), false);
 				?>
+                    <i class="fa fa-search search-icon-submit" title="Search Now"></i>
 				</div>
 				<?php } ?>
 			</div>
