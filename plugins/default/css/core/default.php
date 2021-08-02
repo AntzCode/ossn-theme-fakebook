@@ -752,7 +752,7 @@ fieldset > div{
     margin-left: 28px;
 }
 
-@media (min-width: 992px){
+@media (min-width: 1025px){
     .opensource-socalnetwork .ossn-layout-newsfeed .col-md-2 {
 	width: auto;
     }
@@ -1166,6 +1166,7 @@ fieldset > div{
     color: #000;
     height: 25px;
     border-bottom: 1px solid #DDDDDD;
+    text-align: left;
 }
 .ossn-notification-box-loading {
     margin: 0 auto;
@@ -1603,8 +1604,10 @@ fieldset > div{
     margin-left: 0px;
     margin-right: 0px;
 }
-.ossn-search-page .ossn-users-list-item .uinfo {
-    margin-left: 25px;
+
+.ossn-search-page .ossn-users-list-item img {
+    width: 100%;
+    height: auto;
 }
 .ossn-menu-search-users .text:before {
 	font-family: FontAwesome;
@@ -2022,7 +2025,6 @@ div.token-input-dropdown ul li.token-input-selected-dropdown-item {
     margin-top: 20px;
     float: left;
     text-overflow: ellipsis;
-    width: 300px;
     white-space: nowrap;
     overflow: hidden;    
 }
@@ -2369,10 +2371,7 @@ footer .ossn-footer-menu a:last-child::after {
      margin-left: 0;
      margin-right: 0;
      }
-     
-    .ossn-users-list-item img {
-        display: none;
-    }
+
     .ossn-users-list-item .users-list-controls {
         margin-top: 10px;
         margin-bottom: 10px;
@@ -2566,6 +2565,12 @@ footer .ossn-footer-menu a:last-child::after {
     .topbar .left-side{
 	min-width: 45%;
     }
+    .topbar .mid-side{
+    width:  30%;
+    }
+    .topbar .right-side{
+    width: auto;
+    }
     
     
     /**************************
@@ -2665,9 +2670,7 @@ footer .ossn-footer-menu a:last-child::after {
     .group-search-details {
     	margin-left: 10px;
     }
-    .ossn-search-page .ossn-users-list-item .uinfo {
-    	margin-left: 35px;    
-    }
+
     .ossn-search-page .ossn-users-list-item .uinfo a {
         text-overflow: ellipsis;
         width: 200px;
@@ -2679,8 +2682,22 @@ footer .ossn-footer-menu a:last-child::after {
     }
     .ossn-profile .user-fullname {
     	max-width: 640px;
-    }    
-}
+    }
+
+
+    .topbar .left-side{
+    min-width: 45%;
+    }
+    .topbar .mid-side{
+    width:  29%;
+    }
+    .topbar .right-side{
+    width: auto;
+    }
+
+
+
+    }
 @media only screen and (max-width: 767px) {
     .ossn-profile .user-fullname {
     	max-width: 767px;
