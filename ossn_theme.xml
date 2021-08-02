@@ -7,7 +7,7 @@
     <description>A responsive facebook type theme for Ossn.</description>
     <license>GNU General Public License, version 2</license>    
 	<license_url>http://www.opensource-socialnetwork.org/licence</license_url>
-    <version>4.0.1</version>
+    <version>5.6.0</version>
 	<requires>
 		<type>ossn_version</type>
 		<version>5.6</version>
