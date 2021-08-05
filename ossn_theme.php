@@ -29,8 +29,7 @@ function ossn_facebook_theme_init(){
 	
 	ossn_extend_view('ossn/admin/head', 'ossn_facebook_admin_head');
 	ossn_extend_view('ossn/site/head', 'ossn_facebook_head');
-    ossn_extend_view('js/opensource.socialnetwork', 'js/facebook');
-    ini_set('display_errors', 1);error_reporting(E_ALL);
+	ossn_extend_view('js/opensource.socialnetwork', 'js/facebook');
 }
 function ossn_facebook_head(){
 	$head	 = array();
