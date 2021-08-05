@@ -3,11 +3,11 @@
     <name>Fakebook Theme For OSSN</name>
     <id>fakebook</id>
     <author>AntzCode Ltd</author>
-    <author_url>https://www.github.com/antzcode/ossnfacebook</author_url>	
+    <author_url>https://www.github.com/antzcode/ossn-theme-fakebook</author_url>	
     <description>A responsive facebook type theme for Ossn.</description>
     <license>GNU General Public License, version 2</license>    
 	<license_url>http://www.opensource-socialnetwork.org/licence</license_url>
-    <version>5.6.0</version>
+    <version>5.6.0-rc.1</version>
 	<requires>
 		<type>ossn_version</type>
 		<version>5.6</version>
