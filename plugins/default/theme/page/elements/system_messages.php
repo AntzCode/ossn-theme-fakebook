@@ -6,7 +6,7 @@
  * @author    AntzCode Ltd <www.antzcode.com>
  * @copyright 2020 AntzCode Limited
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
- * @link      https://www.github.com/antzcode/ossnfacebook
+ * @link      https://www.github.com/antzcode/ossn-theme-fakebook
  */
  	$col = "col-md-11";
 	if(array_key_exists('admin', $params) && $params['admin'] === true){
